@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using ProniaOnion.Application.Abstraction.Repositories;
 using ProniaOnion.Application.Abstraction.Services;
 using ProniaOnion.Application.DTOs.Categories;
@@ -15,10 +16,12 @@ namespace ProniaOnion.Persistence.Implementations.Services
     public class TagService : ITagService
     {
         private readonly ITagRepository _repository;
+        private readonly IMapper _mapper;
 
-        public TagService(ITagRepository repository)
+        public TagService(ITagRepository repository,IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
 
@@ -26,13 +29,7 @@ namespace ProniaOnion.Persistence.Implementations.Services
         {
             ICollection<Tag> tags = await _repository.GetAllAsync(skip: (page - 1) * take, take: take, isTracking: false).ToListAsync();
 
-            ICollection<TagItemDto> tagDtos = new List<TagItemDto>();
-            foreach (Tag tag in tags)
-            {
-                tagDtos.Add(new TagItemDto(tag.Id, tag.Name))
-                 ;
-                ;
-            }
+            ICollection<TagItemDto> tagDtos = _mapper.Map<ICollection<TagItemDto>>(tags);
 
             return tagDtos;
         }
@@ -50,10 +47,8 @@ namespace ProniaOnion.Persistence.Implementations.Services
 
         public async Task CreateAsync(TagCreateDto TagCreateDto)
         {
-            await _repository.AddAsync(new Tag
-            {
-                Name = TagCreateDto.Name
-            });
+            await _repository.AddAsync(_mapper.Map<Tag>(TagCreateDto)
+            );
 
             await _repository.SaveChangesAsync();
         }
@@ -64,7 +59,7 @@ namespace ProniaOnion.Persistence.Implementations.Services
 
             if (tag == null) throw new Exception("Not Found");
 
-            tag.Name = updateTagDto.Name;
+            _mapper.Map(updateTagDto, tag);
 
             _repository.Update(tag);
             await _repository.SaveChangesAsync();

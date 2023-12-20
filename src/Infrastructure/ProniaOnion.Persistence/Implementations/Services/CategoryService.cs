@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using ProniaOnion.Application.Abstraction.Repositories;
 using ProniaOnion.Application.Abstraction.Services;
 using ProniaOnion.Application.DTOs.Categories;
@@ -14,32 +15,27 @@ namespace ProniaOnion.Persistence.Implementations.Services
     public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository _repository;
+        private readonly IMapper _mapper;
 
-        public CategoryService(ICategoryRepository repository)
+        public CategoryService(ICategoryRepository repository,IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
 
         public async Task<ICollection<CategoryItemDto>> GetAllAsync(int page, int take)
         {
             ICollection<Category> categories = await _repository.GetAllAsync(skip: (page - 1) * take, take: take, isTracking: false).ToListAsync();
-
-            ICollection<CategoryItemDto> categoryDtos = new List<CategoryItemDto>();
-            foreach (Category category in categories)
-            {
-                categoryDtos.Add(new CategoryItemDto(category.Id,category.Name))
-               ;
-            }
+            ICollection<CategoryItemDto> categoryDtos = _mapper.Map<ICollection<CategoryItemDto>>(categories);
+           
 
             return categoryDtos;
         }
         public async Task CreateAsync(CategoryCreateDto CategoryCreateDto)
         {
-            await _repository.AddAsync(new Category
-            {
-                Name = CategoryCreateDto.Name
-            });
+            
+            await _repository.AddAsync(_mapper.Map<Category>(CategoryCreateDto));
 
             await _repository.SaveChangesAsync();
         }
@@ -50,7 +46,7 @@ namespace ProniaOnion.Persistence.Implementations.Services
 
             if (category == null) throw new Exception("Not Found");
 
-            category.Name = CategoryUpdateDto.Name;
+            _mapper.Map(CategoryUpdateDto, category);
 
             _repository.Update(category);
             await _repository.SaveChangesAsync();
