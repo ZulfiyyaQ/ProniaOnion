@@ -1,0 +1,11 @@
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Core\ProniaOnion.Domain\bin\Debug\net6.0\ProniaOnion.Domain.deps.json
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Core\ProniaOnion.Domain\bin\Debug\net6.0\ProniaOnion.Domain.dll
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Core\ProniaOnion.Domain\bin\Debug\net6.0\ProniaOnion.Domain.pdb
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Core\ProniaOnion.Domain\obj\Debug\net6.0\ProniaOnion.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Core\ProniaOnion.Domain\obj\Debug\net6.0\ProniaOnion.Domain.AssemblyInfoInputs.cache
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Core\ProniaOnion.Domain\obj\Debug\net6.0\ProniaOnion.Domain.AssemblyInfo.cs
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Core\ProniaOnion.Domain\obj\Debug\net6.0\ProniaOnion.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Core\ProniaOnion.Domain\obj\Debug\net6.0\ProniaOnion.Domain.dll
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Core\ProniaOnion.Domain\obj\Debug\net6.0\refint\ProniaOnion.Domain.dll
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Core\ProniaOnion.Domain\obj\Debug\net6.0\ProniaOnion.Domain.pdb
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Core\ProniaOnion.Domain\obj\Debug\net6.0\ref\ProniaOnion.Domain.dll
