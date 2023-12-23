@@ -74,3 +74,6 @@ C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Presentation\ProniaOnion.API\obj\Deb
 C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Presentation\ProniaOnion.API\obj\Debug\net6.0\ref\ProniaOnion.API.dll
 C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Presentation\ProniaOnion.API\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Presentation\ProniaOnion.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Presentation\ProniaOnion.API\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Presentation\ProniaOnion.API\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Presentation\ProniaOnion.API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

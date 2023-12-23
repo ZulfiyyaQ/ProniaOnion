@@ -11,7 +11,7 @@
 
         public BaseEntity()
         {
-            CreatedAt = DateTime.Now;
+           
             CreatedBy = "zuzu.qurbanova";
         }
     }

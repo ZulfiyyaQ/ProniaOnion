@@ -9,5 +9,7 @@ namespace ProniaOnion.Application.Abstraction.Services
         Task CreateAsync(CategoryCreateDto categoryDto);
         Task UpdateAsync(int id, CategoryUpdateDto updateCategoryDto);
         Task DeleteAsync(int id);
+        Task SoftDeleteAsync(int id);
+        
     }
 }

@@ -11,6 +11,7 @@ namespace ProniaOnion.Application.Abstraction.Repositories.Generic
             int skip = 0,
             int take = 0,
             bool isTracking = true,
+             bool IsDeleted = false,
            params string[] include);
         Task<T> GetByIdAsync(int id);
 
@@ -18,6 +19,7 @@ namespace ProniaOnion.Application.Abstraction.Repositories.Generic
         void Update(T entity);
 
         void Delete(T entity);
+        void SoftDelete(T entity);
         Task SaveChangesAsync();
     }
 }

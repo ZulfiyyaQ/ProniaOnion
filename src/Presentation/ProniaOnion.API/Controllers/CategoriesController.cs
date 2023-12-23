@@ -49,7 +49,7 @@ namespace ProniaOnion.API.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();
-            await _service.DeleteAsync(id);
+            await _service.SoftDeleteAsync(id);
             return NoContent();
         }
     }
