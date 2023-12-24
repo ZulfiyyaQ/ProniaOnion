@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProniaOnion.Application.Abstraction.Repositories;
 using ProniaOnion.Application.Abstraction.Services;
+using ProniaOnion.Application.Dtos.Categories;
 using ProniaOnion.Application.DTOs.Categories;
 using ProniaOnion.Domain.Entities;
 
@@ -21,7 +22,7 @@ namespace ProniaOnion.Persistence.Implementations.Services
 
         public async Task<ICollection<CategoryItemDto>> GetAllAsync(int page, int take)
         {
-            ICollection<Category> categories = await _repository.GetAllAsync(skip: (page - 1) * take, take: take, isTracking: false,IsDeleted:false).ToListAsync();
+            ICollection<Category> categories = await _repository.GetAllWhere(skip: (page - 1) * take, take: take, isTracking: false,IsDeleted:false).ToListAsync();
             ICollection<CategoryItemDto> categoryDtos = _mapper.Map<ICollection<CategoryItemDto>>(categories);
            
 
@@ -29,7 +30,8 @@ namespace ProniaOnion.Persistence.Implementations.Services
         }
         public async Task CreateAsync(CategoryCreateDto CategoryCreateDto)
         {
-            
+            bool result = await _repository.IsExistsAsync(c => c.Name == CategoryCreateDto.Name);
+            if (result) throw new Exception("Already exist");
             await _repository.AddAsync(_mapper.Map<Category>(CategoryCreateDto));
 
             await _repository.SaveChangesAsync();
@@ -40,6 +42,8 @@ namespace ProniaOnion.Persistence.Implementations.Services
             Category category = await _repository.GetByIdAsync(id);
 
             if (category == null) throw new Exception("Not Found");
+            bool result = await _repository.IsExistsAsync(c => c.Name == CategoryUpdateDto.Name);
+            if (result) throw new Exception("Already exist");
 
             _mapper.Map(CategoryUpdateDto, category);
 
@@ -65,16 +69,16 @@ namespace ProniaOnion.Persistence.Implementations.Services
             await _repository.SaveChangesAsync();
         }
 
-        //public async Task<GetCategoryDto> GetByIdAsync(int id)
-        //{
-        //    Category category = await _repository.GetByIdAsync(id);
-        //    if (category == null) throw new Exception("Not found");
-        //    return new GetCategoryDto
-        //    {
-        //        Id = category.Id,
-        //        Name = category.Name
-        //    };
-        //}
+        public async Task<GetCategoryDto> GetByIdAsync(int id)
+        {
+            if (id <= 0) throw new Exception("Bad Request");
+            Category item = await _repository.GetByIdAsync(id, includes: nameof(Category.Products));
+            if (item == null) throw new Exception("Not Found");
+
+            GetCategoryDto dto = _mapper.Map<GetCategoryDto>(item);
+
+            return dto;
+        }
 
     }
 }

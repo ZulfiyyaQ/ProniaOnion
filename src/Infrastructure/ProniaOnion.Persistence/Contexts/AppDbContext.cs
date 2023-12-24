@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProniaOnion.Domain.Entities;
+using ProniaOnion.Persistence.Common;
 using System.Reflection;
 
 namespace ProniaOnion.Persistence.Contexts
@@ -20,15 +21,13 @@ namespace ProniaOnion.Persistence.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Category>().HasQueryFilter(c => c.IsDeleted == false);
-            modelBuilder.Entity<Tag>().HasQueryFilter(t => t.IsDeleted == false);
-            //modelBuilder.ApplyConfiguration(new ProductConfiguration());
-            //modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-            //modelBuilder.ApplyConfiguration(new ColorConfiguration());
+            //modelBuilder.Entity<Category>().HasQueryFilter(c => c.IsDeleted == false);
+            //modelBuilder.Entity<Tag>().HasQueryFilter(t => t.IsDeleted == false);
 
+            modelBuilder.ApplyQueryFilter();
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly()) ;
-           
-           
+        
+
             base.OnModelCreating(modelBuilder);
         }
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

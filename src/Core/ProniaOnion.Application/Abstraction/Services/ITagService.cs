@@ -11,8 +11,8 @@ namespace ProniaOnion.Application.Abstraction.Services
     {
         Task<ICollection<TagItemDto>> GetAllAsync(int page, int take);
         //Task<GetCategoryDto> GetByIdAsync(int id);
-        Task CreateAsync(TagCreateDto categoryDto);
-        Task UpdateAsync(int id, TagUpdateDto updateCategoryDto);
+        Task CreateAsync(TagCreateDto tagDto);
+        Task UpdateAsync(int id, TagUpdateDto updatetagDto);
         Task DeleteAsync(int id);
     }
 }

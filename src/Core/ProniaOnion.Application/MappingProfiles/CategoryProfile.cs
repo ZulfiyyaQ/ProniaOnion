@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ProniaOnion.Application.Dtos.Categories;
 using ProniaOnion.Application.DTOs.Categories;
 using ProniaOnion.Domain.Entities;
 using System;
@@ -15,7 +16,9 @@ namespace ProniaOnion.Application.MappingProfiles
         {
             CreateMap<Category, CategoryItemDto>().ReverseMap();
             CreateMap<CategoryCreateDto, Category>();
-            CreateMap<CategoryUpdateDto, Category>().ReverseMap(); 
+            CreateMap<CategoryUpdateDto, Category>().ReverseMap();
+            CreateMap<Category, IncludeCategoryDto>().ReverseMap();
+            CreateMap<Category, GetCategoryDto>().ReverseMap();
 
         }
     }
