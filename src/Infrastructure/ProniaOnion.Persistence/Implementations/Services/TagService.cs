@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ProniaOnion.Application.Abstraction.Repositories;
 using ProniaOnion.Application.Abstraction.Services;
 using ProniaOnion.Application.Dtos.Tag;
+using ProniaOnion.Application.DTOs.Products;
 using ProniaOnion.Application.DTOs.Tags;
 using ProniaOnion.Domain.Entities;
 
@@ -20,13 +21,12 @@ namespace ProniaOnion.Persistence.Implementations.Services
         }
 
 
-        public async Task<ICollection<TagItemDto>> GetAllAsync(int page, int take)
+        public async Task<ICollection<TagItemDto>> GetAllPaginated(int page, int take)
         {
-            ICollection<Tag> tags = await _repository.GetAllWhere(skip: (page - 1) * take, take: take, isTracking: false, IsDeleted: false).ToListAsync();
-
-            ICollection<TagItemDto> tagDtos = _mapper.Map<ICollection<TagItemDto>>(tags);
-
-            return tagDtos;
+            
+            List<Tag> tags = await _repository.GetAllWhere(skip: (page - 1) * take, take: take).ToListAsync();
+            var dtos = _mapper.Map<List<TagItemDto>>(tags);
+            return dtos;
         }
         public async Task<GetTagDto> GetByIdAsync(int id)
         {

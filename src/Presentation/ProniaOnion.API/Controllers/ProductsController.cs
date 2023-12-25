@@ -34,6 +34,20 @@ namespace ProniaOnion.API.Controllers
             await _service.CreateAsync(productDto);
             return StatusCode(StatusCodes.Status201Created);
         }
+        [HttpPut]
+         public async Task<IActionResult>Update(int id, [FromForm] ProductUpdateDto dto)
+        {
+            if (id <= 0) return StatusCode(StatusCodes.Status400BadRequest);
+            await _service.UpdateAsync(id, dto);
+            return StatusCode(StatusCodes.Status204NoContent);
+        }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (id <= 0) return BadRequest();
+            await _service.SoftDeLeteAsync(id);
+            return NoContent();
+        }
     }
 }

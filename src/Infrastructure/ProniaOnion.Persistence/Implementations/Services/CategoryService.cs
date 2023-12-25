@@ -20,13 +20,12 @@ namespace ProniaOnion.Persistence.Implementations.Services
         }
 
 
-        public async Task<ICollection<CategoryItemDto>> GetAllAsync(int page, int take)
+        public async Task<ICollection<CategoryItemDto>> GetAllPaginated(int page, int take)
         {
-            ICollection<Category> categories = await _repository.GetAllWhere(skip: (page - 1) * take, take: take, isTracking: false,IsDeleted:false).ToListAsync();
-            ICollection<CategoryItemDto> categoryDtos = _mapper.Map<ICollection<CategoryItemDto>>(categories);
            
-
-            return categoryDtos;
+            List<Category> categories = await _repository.GetAllWhere(skip: (page - 1) * take, take: take).ToListAsync();
+            var dtos = _mapper.Map<List<CategoryItemDto>>(categories);
+            return dtos;
         }
         public async Task CreateAsync(CategoryCreateDto CategoryCreateDto)
         {

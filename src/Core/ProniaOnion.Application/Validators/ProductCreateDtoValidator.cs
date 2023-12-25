@@ -11,6 +11,10 @@ namespace ProniaOnion.Application.Validators
             RuleFor(x => x.Description).NotEmpty().MaximumLength(1000).WithMessage("Description must contain max 1000 characters");
             RuleFor(x => x.SKU).NotEmpty().MaximumLength(10).WithMessage("Name must contain max 10 characters ");
             RuleFor(x => x.Price).NotEmpty().LessThanOrEqualTo(999999.99m).GreaterThanOrEqualTo(10);
+            RuleFor(x => x.CategoryId).Must(c => c> 0);
+            RuleForEach(x => x.ColorIds).Must(c => c > 0);
+            RuleFor(x => x.ColorIds).NotEmpty();
+
         }
     }
 }

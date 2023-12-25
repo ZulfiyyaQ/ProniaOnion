@@ -1,4 +1,5 @@
-﻿using ProniaOnion.Application.DTOs.Products;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProniaOnion.Application.DTOs.Products;
 
 namespace ProniaOnion.Application.Abstraction.Services
 {
@@ -9,7 +10,9 @@ namespace ProniaOnion.Application.Abstraction.Services
         //Task<ICollection<ProductItemDto>> GetAllAsync(int page, int take);
         //Task<GetCategoryDto> GetByIdAsync(int id);
         Task CreateAsync(ProductCreateDto prdocutDto);
-        //Task UpdateAsync(int id, ProductUpdateDto updateproductDto);
-        //Task DeleteAsync(int id);
+        Task UpdateAsync(int id, ProductUpdateDto dto);
+
+        Task DeleteAsync(int id);
+        Task SoftDeLeteAsync(int id);
     }
 }

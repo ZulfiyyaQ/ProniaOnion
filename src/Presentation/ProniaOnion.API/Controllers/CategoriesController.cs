@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using ProniaOnion.Application.Abstraction.Repositories;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProniaOnion.Application.Abstraction.Services;
 using ProniaOnion.Application.DTOs.Categories;
 
@@ -17,10 +15,11 @@ namespace ProniaOnion.API.Controllers
             _service = service;
         }
 
+        
         [HttpGet]
         public async Task<IActionResult> Get(int page, int take)
         {
-            return Ok(await _service.GetAllAsync(page, take));
+            return Ok(await _service.GetAllPaginated(page, take));
         }
 
         //[HttpGet("{id}")]
@@ -29,6 +28,11 @@ namespace ProniaOnion.API.Controllers
         //    if (id <= 0) return StatusCode(StatusCodes.Status400BadRequest);
         //    return StatusCode(StatusCodes.Status200OK, await _service.GetByIdAsync(id));
         //}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            return Ok(await _service.GetByIdAsync(id));
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] CategoryCreateDto CategoryCreateDto)
