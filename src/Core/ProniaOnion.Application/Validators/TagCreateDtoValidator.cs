@@ -1,11 +1,5 @@
 ﻿using FluentValidation;
-using ProniaOnion.Application.DTOs.Categories;
 using ProniaOnion.Application.DTOs.Tags;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProniaOnion.Application.Validators
 {

@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using ProniaOnion.Application.Abstraction.Repositories;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProniaOnion.Application.Abstraction.Services;
 using ProniaOnion.Application.DTOs.Products;
 
@@ -46,8 +44,39 @@ namespace ProniaOnion.API.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();
+            await _service.DeleteAsync(id);
+            return NoContent();
+        }
+       
+        [HttpDelete("SoftDelete/{id}")]
+        public async Task<IActionResult> SoftDelete(int id)
+        {
             await _service.SoftDeLeteAsync(id);
             return NoContent();
         }
+
+        [HttpPut("ReverseSoftDelete/{id}")]
+        public async Task<IActionResult> ReverseSoftDelete(int id)
+        {
+            if (id <= 0) return StatusCode(StatusCodes.Status400BadRequest);
+            await _service.ReverseSoftDeLeteAsync(id);
+            return NoContent();
+        }
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> SoftDelete(int id)
+        //{
+        //    if (id <= 0) return BadRequest();
+        //    await _service.SoftDeLeteAsync(id);
+        //    return NoContent();
+        //}
+
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> ReverseSoftDeLeteAsync(int id)
+        //{
+        //    if (id <= 0) return BadRequest();
+        //    await _service.ReverseSoftDeLeteAsync(id);
+        //    return NoContent();
+        //}
+
     }
 }

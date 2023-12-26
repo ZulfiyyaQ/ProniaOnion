@@ -14,5 +14,7 @@ namespace ProniaOnion.Application.Abstraction.Services
 
         Task DeleteAsync(int id);
         Task SoftDeLeteAsync(int id);
+
+        Task ReverseSoftDeLeteAsync(int id);
     }
 }

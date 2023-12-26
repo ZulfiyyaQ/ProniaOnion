@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using ProniaOnion.Application.Abstraction.Repositories;
 using ProniaOnion.Application.Abstraction.Services;
 using ProniaOnion.Application.Dtos.Tag;
-using ProniaOnion.Application.DTOs.Products;
 using ProniaOnion.Application.DTOs.Tags;
 using ProniaOnion.Domain.Entities;
 

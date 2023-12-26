@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProniaOnion.Application.Abstraction.Services;
 using ProniaOnion.Application.DTOs.Tags;
 

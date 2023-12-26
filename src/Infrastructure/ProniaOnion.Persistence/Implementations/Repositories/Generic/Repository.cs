@@ -2,12 +2,7 @@
 using ProniaOnion.Application.Abstraction.Repositories.Generic;
 using ProniaOnion.Domain.Entities;
 using ProniaOnion.Persistence.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProniaOnion.Persistence.Implementations.Repositories.Generic
 {
