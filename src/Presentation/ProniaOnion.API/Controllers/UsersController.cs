@@ -22,5 +22,12 @@ namespace ProniaOnion.API.Controllers
             await _service.Register(dto);
             return NoContent();
         }
+        [HttpPost("[Action]")]
+        public async Task<IActionResult> Login([FromForm] LoginDto dto)
+        {
+            
+            return Ok(await _service.Login(dto));
+        }
+
     }
 }

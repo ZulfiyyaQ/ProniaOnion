@@ -9,3 +9,4 @@ C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Infrastructure\ProniaOnion.Infrastru
 C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Infrastructure\ProniaOnion.Infrastructure\obj\Debug\net6.0\refint\ProniaOnion.Infrastructure.dll
 C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Infrastructure\ProniaOnion.Infrastructure\obj\Debug\net6.0\ProniaOnion.Infrastructure.pdb
 C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Infrastructure\ProniaOnion.Infrastructure\obj\Debug\net6.0\ref\ProniaOnion.Infrastructure.dll
+C:\Users\Asus\Desktop\tasks\ProniaOnion\src\Infrastructure\ProniaOnion.Infrastructure\obj\Debug\net6.0\ProniaOnion.Infrastructure.csproj.AssemblyReference.cache

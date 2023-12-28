@@ -9,19 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{60BE4404
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{0E61B916-0D31-4CC4-95FA-38BABE834F29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProniaOnion.Domain", "src\Core\ProniaOnion.Domain\ProniaOnion.Domain.csproj", "{D8B0807C-4813-4AA4-BD7D-D48D3968A09D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProniaOnion.Domain", "src\Core\ProniaOnion.Domain\ProniaOnion.Domain.csproj", "{D8B0807C-4813-4AA4-BD7D-D48D3968A09D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProniaOnion.Application", "src\Core\ProniaOnion.Application\ProniaOnion.Application.csproj", "{C2D0B311-C615-43E2-BF50-2511AF338844}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProniaOnion.Application", "src\Core\ProniaOnion.Application\ProniaOnion.Application.csproj", "{C2D0B311-C615-43E2-BF50-2511AF338844}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{1A2B1B50-D13A-4C31-94EC-2206AAF6FDC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProniaOnion.Persistence", "src\Infrastructure\ProniaOnion.Persistence\ProniaOnion.Persistence.csproj", "{DBA6E213-69EE-4F98-936B-41E53384B77A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProniaOnion.Persistence", "src\Infrastructure\ProniaOnion.Persistence\ProniaOnion.Persistence.csproj", "{DBA6E213-69EE-4F98-936B-41E53384B77A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProniaOnion.Infrastructure", "src\Infrastructure\ProniaOnion.Infrastructure\ProniaOnion.Infrastructure.csproj", "{A831B35C-3991-45F8-BEA9-31BA5D04E40F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProniaOnion.Infrastructure", "src\Infrastructure\ProniaOnion.Infrastructure\ProniaOnion.Infrastructure.csproj", "{A831B35C-3991-45F8-BEA9-31BA5D04E40F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{D9903EC3-6CB0-4B4E-BF0C-342294992C76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProniaOnion.API", "src\Presentation\ProniaOnion.API\ProniaOnion.API.csproj", "{388DE0DF-51D3-4BC8-B94A-BF6FD38341E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProniaOnion.API", "src\Presentation\ProniaOnion.API\ProniaOnion.API.csproj", "{388DE0DF-51D3-4BC8-B94A-BF6FD38341E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
